@@ -10,6 +10,16 @@ protocol FinanceHomePresentableListener: AnyObject {
 final class FinanceHomeViewController: UIViewController, FinanceHomePresentable, FinanceHomeViewControllable {
   
   weak var listener: FinanceHomePresentableListener?
+    
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 4
+        return stackView
+    }()
   
   init() {
     super.init(nibName: nil, bundle: nil)
